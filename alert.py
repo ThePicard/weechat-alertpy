@@ -44,6 +44,6 @@ def do_alert(data, signal, signal_data):
     global last_notify
     since = datetime.now() - last_notify
     if since.seconds >= MIN_WAIT:
-        subprocess.call(['aplay', '-q', SOUND_FILE])
+        subprocess.Popen(['aplay', '-q', SOUND_FILE])
         last_notify = datetime.now()
     return weechat.WEECHAT_RC_OK
